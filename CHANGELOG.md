@@ -1,4 +1,4 @@
-# eslint-plugin-require-ts-check
+# CHANGELOG
 
 ## v0.0.1
 

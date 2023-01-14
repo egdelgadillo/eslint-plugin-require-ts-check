@@ -7,7 +7,7 @@ Require @ts-check to be added in your javascript files
 - [Table of contents](#table-of-contents)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Supported Parameters](#supported-parameters)
+- [Supported options](#supported-options)
 - [Contributing](#contributing)
 
 ## Installation
@@ -84,12 +84,18 @@ Defaults to the `node_modules` folder: `[ "node_modules" ]`
 
    Others: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>:
 
-   Find "Extensions: Show recommended extensions" and install them
+   Find the "Extensions: Show recommended extensions" option and install them.
 
-   Always format the code when saving
+   Always remember to format the code when saving if your editor does not do it automatically.
 
-2. Create a new changelog entry by running `pnpm changeset` and fill in the data
-3. Run tests `pnpm test`
-4. Run prettier `pnpm prettier`
-5. Run lint `pnpm lint`
-6. Push your changes and create a PR for your branch pointing to `main`.
+2. Fork the repo
+3. Create a new branch based off of `develop`
+4. Add your changes
+5. Create a new changelog entry by running `npm run changelog` and fill in the data
+
+   This will create an `.md` file with a random name in the `.changeset` folder. This file should contain the changes that were added as part of your contribution. It will later be _automatically_ added to the main `CHANGELOG.md` file when a new release is created.
+
+6. Run tests: `npm test`
+7. Check the code formatting: `npm prettier`
+8. Run the linter: `npm lint`
+9. Push your changes and create a PR in the original repository for your new branch pointing to `develop`.
