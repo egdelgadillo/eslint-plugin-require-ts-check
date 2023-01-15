@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.0.2
+
+### Patch Changes
+
+- 287c0d2: Update Github publish and CI actions
+
 ## v0.0.1
 
 Initial release
