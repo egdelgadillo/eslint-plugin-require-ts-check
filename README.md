@@ -2,6 +2,8 @@
 
 Require @ts-check to be added in your javascript files
 
+This repository uses CI/CD to automatically publish new releases as described on my [Setup versioning and NPM publication using Github Actions and changesets](https://gist.github.com/egdelgadillo/2294da4d387765c0ae993c27787a3491) gist.
+
 ## Table of contents
 
 - [Table of contents](#table-of-contents)
