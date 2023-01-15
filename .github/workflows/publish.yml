@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    tags:
-      - v*
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -25,15 +23,17 @@ jobs:
       - name: Install dependencies
         run: npm install --frozen-lockfile
 
-      - name: Update CHANGELOG
+      - name: Setup .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+
+      - name: Create release PR or publish to NPM
         uses: changesets/action@v1
         with:
-          commit: Update CHANGELOG
-          title: Update CHANGELOG for Release
+          version: npx changeset version
+          publish: npx changeset publish
+          commit: 'chore(release): changesets versioning & publication'
+          title: 'Changesets: Versioning & Publication'
+          createGithubReleases: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish to NPM
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -91,7 +91,7 @@ Defaults to the `node_modules` folder: `[ "node_modules" ]`
 2. Fork the repo
 3. Create a new branch based off of `main`
 4. Add your changes
-5. Create a new changelog entry by running `npm run changelog` and fill in the data
+5. Create a new changelog entry by running `npm run changeset` and fill in the data
 
    This will create an `.md` file with a random name in the `.changeset` folder. This file should contain the changes that were added as part of your contribution. It will later be _automatically_ added to the main `CHANGELOG.md` file when a new release is created.
 

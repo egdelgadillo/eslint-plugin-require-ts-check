@@ -14,7 +14,7 @@
     "test": "mocha tests --recursive",
     "prettier": "prettier --check .",
     "lint": "eslint .",
-    "changelog": "changeset"
+    "changeset": "changeset"
   },
   "dependencies": {
     "micromatch": "^4.0.5",
