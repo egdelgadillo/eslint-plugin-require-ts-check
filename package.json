@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-require-ts-check",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Require @ts-check in your files",
   "keywords": [
     "eslint",
