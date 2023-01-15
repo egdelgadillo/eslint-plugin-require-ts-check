@@ -11,9 +11,10 @@
   "main": "./lib/index.js",
   "exports": "./lib/index.js",
   "scripts": {
-    "lint": "eslint .",
     "test": "mocha tests --recursive",
-    "prettier": "prettier --write '**/*'.{js,json,ts,md}"
+    "prettier": "prettier --check .",
+    "lint": "eslint .",
+    "changelog": "changeset"
   },
   "dependencies": {
     "micromatch": "^4.0.5",
