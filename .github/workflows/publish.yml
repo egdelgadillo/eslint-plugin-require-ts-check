@@ -25,15 +25,11 @@ jobs:
       - name: Install dependencies
         run: npm install --frozen-lockfile
 
-      - name: Update CHANGELOG
+      - name: Update CHANGELOG and Publish to NPM
         uses: changesets/action@v1
         with:
           commit: Update CHANGELOG
           title: Update CHANGELOG for Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Publish to NPM
-        uses: changesets/action@v1
-        env:
           NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
