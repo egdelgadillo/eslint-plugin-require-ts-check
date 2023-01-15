@@ -89,7 +89,7 @@ Defaults to the `node_modules` folder: `[ "node_modules" ]`
    Always remember to format the code when saving if your editor does not do it automatically.
 
 2. Fork the repo
-3. Create a new branch based off of `develop`
+3. Create a new branch based off of `main`
 4. Add your changes
 5. Create a new changelog entry by running `npm run changelog` and fill in the data
 
@@ -98,4 +98,4 @@ Defaults to the `node_modules` folder: `[ "node_modules" ]`
 6. Run tests: `npm test`
 7. Check the code formatting: `npm prettier`
 8. Run the linter: `npm lint`
-9. Push your changes and create a PR in the original repository for your new branch pointing to `develop`.
+9. Push your changes and create a PR in the original repository for your new branch pointing to `main`.
