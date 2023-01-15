@@ -1,8 +1,11 @@
 name: Publish
+
 on:
   push:
     branches:
       - main
+    tags:
+      - v*
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -10,24 +13,27 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 7
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js 16.x
+        uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          cache: 'pnpm'
           registry-url: https://registry.npmjs.org
 
-      - run: pnpm install --frozen-lockfile
-      - name: Create Release Pull Request or Publish
-        id: changesets
+      - name: Install dependencies
+        run: npm install --frozen-lockfile
+
+      - name: Update CHANGELOG
         uses: changesets/action@v1
+        with:
+          commit: Update CHANGELOG
+          title: Update CHANGELOG for Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish
-        run: npm publish --access public
+      - name: Publish to NPM
+        uses: changesets/action@v1
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
